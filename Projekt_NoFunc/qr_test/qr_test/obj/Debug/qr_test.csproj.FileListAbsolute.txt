@@ -1,0 +1,12 @@
+C:\Users\Gerald\source\repos\qr_test\qr_test\obj\Debug\qr_test.csprojResolveAssemblyReference.cache
+C:\Users\Gerald\source\repos\qr_test\qr_test\obj\Debug\qr_test.Form1.resources
+C:\Users\Gerald\source\repos\qr_test\qr_test\obj\Debug\qr_test.Properties.Resources.resources
+C:\Users\Gerald\source\repos\qr_test\qr_test\obj\Debug\qr_test.csproj.GenerateResource.Cache
+C:\Users\Gerald\source\repos\qr_test\qr_test\obj\Debug\qr_test.csproj.CoreCompileInputs.cache
+C:\Users\Gerald\source\repos\qr_test\qr_test\bin\Debug\qr_test.exe.config
+C:\Users\Gerald\source\repos\qr_test\qr_test\bin\Debug\qr_test.exe
+C:\Users\Gerald\source\repos\qr_test\qr_test\bin\Debug\qr_test.pdb
+C:\Users\Gerald\source\repos\qr_test\qr_test\obj\Debug\qr_test.exe
+C:\Users\Gerald\source\repos\qr_test\qr_test\obj\Debug\qr_test.pdb
+C:\Users\Gerald\source\repos\qr_test\qr_test\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Gerald\source\repos\qr_test\qr_test\obj\Debug\qr_test.Form2.resources
