@@ -55,6 +55,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

@@ -23,6 +23,11 @@ namespace qr_test
         {
             
         }
+
+        private void progressBar2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -40,7 +40,7 @@ namespace qr_test
 
         private void qr_encode()
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "JPEG|*jpg", ValidateNames = true, FileName= "qr_code.jpg" })
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "JPEG|*jpg", ValidateNames = true, FileName = "qr_code.jpg" })
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -55,7 +55,7 @@ namespace qr_test
         }
         public void qr_decode()
         {
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPEG|*jpg", ValidateNames = true , Multiselect = false })
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPEG|*jpg", ValidateNames = true, Multiselect = false })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -63,6 +63,46 @@ namespace qr_test
                     MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
                     textBox2.Text = decoder.Decode(new QRCodeBitmapImage(pictureBox3.Image as Bitmap));
                 }
+            }
+        }
+
+        private void qr_decode_X()
+        {
+        //--------------------------------------------------------------------------------------------------
+
+            int x;
+            int y;
+            string I;
+            string II;
+
+            I = Properties.Settings.Default["x"].ToString();
+            II = Properties.Settings.Default["y"].ToString();
+
+            x = Convert.ToInt32(I);
+            y = Convert.ToInt32(II);
+
+        //--------------------------------------------------------------------------------------------------
+
+            try
+            {
+                MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
+                textBox2.Text = decoder.Decode(new QRCodeBitmapImage(pictureBox3.Image as Bitmap));
+                MessageBox.Show("Func");
+                return;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Fehler");
+                x++;
+                y++;
+                Properties.Settings.Default["x"] = x;
+                Properties.Settings.Default["y"] = y;
+                Properties.Settings.Default.Save();
+
+                MessageBox.Show(x.ToString()+" :qr_decoder_X");
+                SearchPx();
+                return;
             }
         }
 
@@ -143,9 +183,10 @@ namespace qr_test
                         Properties.Settings.Default["x"] = x;
                         Properties.Settings.Default["y"] = y;
                         Properties.Settings.Default["length"] = length;
-                        //Properties.Settings.Default.Save();
+                        Properties.Settings.Default.Save();
 
                         SearchCode();
+                        return;
                     }
                 }
             }
@@ -172,12 +213,15 @@ namespace qr_test
             y = Convert.ToInt32(II);
             length = Convert.ToInt32(III);
 
-        //--------------------------------------------------------------------------------------------------
+            MessageBox.Show(x.ToString() + " :SearchCode");
+            MessageBox.Show(Properties.Settings.Default["x"].ToString() + " :SearchCode");
+
+            //--------------------------------------------------------------------------------------------------
 
             Bitmap bitmap = new Bitmap(1, 1);
             bitmap = (Bitmap)Image.FromFile(Properties.Settings.Default["import"].ToString());
 
-            Bitmap qr_code = new Bitmap(bitmap.Height, bitmap.Width);
+            Bitmap qr_code = new Bitmap(1, 1);
 
         //--------------------------------------------------------------------------------------------------
 
@@ -199,6 +243,8 @@ namespace qr_test
 
                     qr_code = bitmap.Clone(new Rectangle(x, y, length, length), PixelFormat.DontCare);
                     pictureBox4.Image = qr_code;
+                    pictureBox3.Image = qr_code;
+                    qr_decode_X();
                     return;
                 }
                 max--;
